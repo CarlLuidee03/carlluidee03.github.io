@@ -2,73 +2,91 @@
 <html>
 <head>
   <title>Carl's Website</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello, my name is Carl Luidee Lim!</h1>
+  <h1>Welcome!</h1>
   <img src="Carl Photo.jpeg" alt="Image of Carl Lim" width="500">
-  <p>I am a senior student at SPU studying Computer Science, and this is my website for CSC 3121.</p>
-  <h2>Here are my spring courses:</h2>
-  <table border="1">
-    <tr>
-      <th>Course Number</th>
-      <th>Course Name</th>
-    </tr>
-    <tr>
-      <th>CSC 2431</th>
-      <td>Data Structures and Algorithms</td>
-    </tr>
-    <tr>
-      <th>ENG 3333</th>
-      <td>Asian American Literature</td>
-    </tr>
-    <tr>
-      <th>CSC 3221</th>
-      <td>Netcentric Computing</td>
-    </tr>
-  </table>
-  <h2>This is my current schedule:</h2>
-  <table border="1">
-    <tr>
-      <th>Time</th>
-      <th>Course</th>
-    </tr>
-    <tr>
-      <th>10:30 am</th>
-      <td rowspan="3">Data Structures and Algorithms</td>
-    </tr>
-    <tr>
-      <th>11:00 am</th>
-    </tr>
-    <tr>
-      <th>11:30 am</th>
-    </tr>
-    <tr>
-      <th>12:00 pm</th>
-    </tr>
-    <tr>
-      <th>12:30 pm</th>
-    </tr>
-    <tr>
-      <th>1:00 pm</th>
-      <td rowspan="3">Asian American Literature</td>
-    </tr>
-    <tr>
-      <th>1:30 pm</th>
-    </tr>
-    <tr>
-      <th>2:00 pm</th>
-    </tr>
-    <tr>
-      <th>2:30 pm</th>
-      <td rowspan="3">Netcentric Computing</td>
-    </tr>
-    <tr>
-      <th>3:00 pm</th>
-    </tr>
-    <tr>
-      <th>3:30 pm</th>
-    </tr>
-  </table>
-  <h3><a href="https://github.com/CarlLuidee03/carlluidee03.github.io">Visit the GitHub</a></h3>
+  
+  <nav>
+      <a href="#about">About Me</a>
+      <a href="#courses">My Courses</a>
+      <a href="#schedule">My Schedule</a>
+      <a href="#contact">Contact</a>
+  </nav>
+  
+  <section id="about">
+    <h2>About me</h2>
+    <p>My name is <b>Carl Luidee Lim</b>.</p>
+    <p>I am a senior student at SPU studying <u>Computer Science</u>.</p>
+  </section>
+
+  <section id="courses">
+    <h2>Current spring courses</h2>
+    <table>
+      <tr>
+        <th>Course Number</th>
+        <th>Course Name</th>
+      </tr>
+      <tr>
+        <th>CSC 2431</th>
+        <td>Data Structures and Algorithms</td>
+      </tr>
+      <tr>
+        <th>ENG 3333</th>
+        <td>Asian American Literature</td>
+      </tr>
+      <tr>
+        <th>CSC 3221</th>
+        <td>Netcentric Computing</td>
+      </tr>
+    </table>
+  </section>
+  
+  <section id="schedule">
+    <h2>Current schedule</h2>
+    <table>
+      <tr>
+        <th>Time</th>
+        <th>Course</th>
+      </tr>
+      <tr>
+        <th>10:30 am</th>
+        <td rowspan="2">Data Structures and Algorithms</td>
+      </tr>
+      <tr>
+        <th>11:50 am</th>
+      </tr>
+      <tr>
+        <th>12:00 pm</th>
+        <td rowspan="2">Lunch</td>
+      </tr>
+      <tr>
+        <th>12:50 pm</th>
+      </tr>
+      <tr>
+        <th>1:00 pm</th>
+        <td rowspan="2">Asian American Literature</td>
+      </tr>
+      <tr>
+        <th>2:20 pm</th>
+      </tr>
+      <tr>
+        <th>2:30 pm</th>
+        <td rowspan="2">Netcentric Computing</td>
+      </tr>
+      <tr>
+        <th>3:50 pm</th>
+      </tr>
+    </table>
+  </section>
+
+  <section id="contact">
+    <h2>Contact me</h2>
+    <p id="email">Email: <a href="mailto:limc1@spu.edu">limc1@spu.edu</a></p>
+    <p id="phone">Phone: (253) 205-6966</p>
+  </section>
+
+  <h3><a href="https://github.com/CarlLuidee03/carlluidee03.github.io">Visit the GitHub Repository</a></h3>
 </body>
 </html>
