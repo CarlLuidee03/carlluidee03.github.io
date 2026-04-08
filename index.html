@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <title>Carl's Website</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <h1>Welcome!</h1>
   <img src="Carl Photo.jpeg" alt="Image of Carl Lim" width="500">
-  
+
   <nav>
-      <a href="#about">About Me</a>
-      <a href="#courses">My Courses</a>
-      <a href="#schedule">My Schedule</a>
-      <a href="#contact">Contact</a>
+    <a href="#about">About Me</a>
+    <a href="#courses">My Courses</a>
+    <a href="#schedule">My Schedule</a>
+    <a href="#css">CSS</a>
+    <a href="#contact">Contact</a>
   </nav>
-  
-  <section id="about">
+
+  <div id="about">
     <h2>About me</h2>
     <p>My name is <b>Carl Luidee Lim</b>.</p>
     <p>I am a senior student at SPU studying <u>Computer Science</u>.</p>
-  </section>
+  </div>
 
-  <section id="courses">
+  <div id="courses">
     <h2>Current spring courses</h2>
     <table>
       <tr>
@@ -41,9 +45,9 @@
         <td>Netcentric Computing</td>
       </tr>
     </table>
-  </section>
-  
-  <section id="schedule">
+  </div>
+
+  <div id="schedule">
     <h2>Current schedule</h2>
     <table>
       <tr>
@@ -79,14 +83,44 @@
         <th>3:50 pm</th>
       </tr>
     </table>
-  </section>
+  </div>
 
-  <section id="contact">
+  <div id="css">
+    <h2>CSS</h2>
+
+    <h3>&lt;table&gt;</h3>
+    <p>The &lt;table&gt; element is set to , TODO</p>
+    <pre>
+      <code>
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+      </code>
+    </pre>
+
+    <h3>&lt;div&gt;</h3>
+    <p>The &lt;div&gt; element is set to have a red background with a dark red left border, TODO</p>
+    <pre>
+      <code>
+div {
+  background-color: var(--sec-color);
+  padding: 10px;
+  margin: 20px;
+  border-left: 10px solid var(--drk-color);
+  box-shadow: 0px 0px 10px black;
+}
+      </code>
+    </pre>
+  </div>
+
+  <div id="contact">
     <h2>Contact me</h2>
     <p id="email">Email: <a href="mailto:limc1@spu.edu">limc1@spu.edu</a></p>
     <p id="phone">Phone: (253) 205-6966</p>
-  </section>
+    <p id="github">GitHub: <a href="https://github.com/CarlLuidee03">https://github.com/CarlLuidee03</a></p>
+  </div>
 
-  <h3><a href="https://github.com/CarlLuidee03/carlluidee03.github.io">Visit the GitHub Repository</a></h3>
 </body>
+
 </html>
