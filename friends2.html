@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Friend Link</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="display-1">Friend Link</h1>
+
+    <div class="controls">
+		<button id="loadAllBtn" class="btn btn-primary">Load All</button>
+	</div>
+
+	<div id="message" class="message"></div>
+
+    <table id="friendsTable" class="table table-sm table-striped">
+        <thead>
+            <tr>
+				<th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+	<div id="detailsDiv" style="padding-left: 20px">
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<script>
+		const API_URL = "https://friends-node-01-47e26a48b0b0.herokuapp.com/friends";
+		
+		const loadAllBtn = document.getElementById("loadAllBtn");
+		const tableBody = document.querySelector("#friendsTable tbody");
+		const messageDiv = document.getElementById("message");
+		const detailsDiv = document.getElementById("detailsDiv");
+
+		function clearTable() {
+			tableBody.innerHTML = "";
+		}
+
+		function showMessage(message) {
+			messageDiv.textContent = message;
+		}
+
+		function addFriendRow(friend) {
+			const row = document.createElement("tr");
+			const name = `${friend.firstName} ${friend.lastName}`
+
+			const friendName = `${friend.firstName} ${friend.lastName}`
+
+			row.innerHTML = `
+				<td>
+					<a href="#" onclick="ShowFriend(${friend.id}); return false;">${friend.id}</a>
+				</td>
+				<td>
+					${friendName}
+				</td>
+			`;
+			
+			tableBody.appendChild(row);
+		}
+
+		async function loadAllFriends() {
+			clearTable();
+			showMessage("Loading all friends...");
+
+			try {
+				const response = await fetch(API_URL);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error ${response.status}`);
+				}
+
+				const friends = await response.json();
+
+				if (!Array.isArray(friends) || friends.length === 0) {
+					showMessage("No friends found.");
+					return;
+				}
+
+				friends.forEach(addFriendRow);
+				showMessage(`Loaded ${friends.length} friend(s).`);
+			}
+			catch (error) {
+				showMessage(`Error loading friends: ${error.message}`);
+			}
+		}
+
+		async function ShowFriend(id) {
+			detailsDiv.innerHTML = "Loading friend details...";
+			
+			try {
+				const response = await fetch(`${API_URL}/${id}`);
+
+				if (!response.ok) {
+					throw new Error(`HTTP error ${response.status}`);
+				}
+
+				const friend = await response.json();
+
+				detailsDiv.innerHTML = `
+					<div>
+						<p><strong>id:</strong> ${friend.id}</p>
+						<p><strong>firstName:</strong> ${friend.firstName}</p>
+						<p><strong>lastName:</strong> ${friend.lastName}</p>
+						<p><strong>phone:</strong> ${friend.phone}</p>
+					</div>
+				`;
+			}
+			catch (error) {
+				showMessage(`Error loading friend: ${error.message}`);
+			}
+		}
+
+		loadAllBtn.addEventListener("click", loadAllFriends);
+	</script>
+</body>
+
+</html>
